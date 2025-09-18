@@ -10,47 +10,46 @@
 </head>
 <body>
     <!-- Header: dark-themed navigation with brand logo -->
-  <header class="site-header">
-    <div class="container flex between align-center">
-        <!-- Brand logo -- now using the provided transparent PNG version -->
-        <img src="oops_logo.png" alt="Oops logo" class="site-logo-img">
-        <!-- Desktop Navigation -->
-        <nav class="site-nav desktop-nav">
-            <ul class="nav-list flex between align-center">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="index.html#faq">FAQs</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-                <li><a href="login.html" id="authLink" data-auth-link="true">Login</a></li>
-                <li><a href="cart.html">Cart (<span id="cartCount">0</span>)</a></li>
-            </ul>
-        </nav>
-        
-        <!-- Mobile hamburger button -->
-        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-        
-        <!-- Mobile Navigation overlay -->
-        <nav class="mobile-nav" id="mobile-nav">
-            <div class="nav-overlay"></div>
-            <div class="nav-content">
-                <button class="nav-close" aria-label="Close navigation">&times;</button>
-                <ul class="nav-list">
+    <header class="site-header">
+        <div class="container flex between align-center">
+            <!-- Brand logo -- now using the provided transparent PNG version -->
+            <img src="oops_logo.png" alt="Oops logo" class="site-logo-img">
+            <!-- Desktop Navigation -->
+            <nav class="site-nav desktop-nav">
+                <ul class="nav-list flex between align-center">
                     <li><a href="index.html#home">Home</a></li>
                     <li><a href="products.html">Products</a></li>
                     <li><a href="index.html#faq">FAQs</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
-                    <li><a href="login.html" id="mobileAuthLink" data-auth-link="true">Login</a></li>
-                    <li><a href="cart.html">Cart (<span id="mobileCartCount">0</span>)</a></li>
+                    <li><a href="login.html" id="authLink" data-auth-link="true">Login</a></li>
+                    <li><a href="cart.html">Cart (<span id="cartCount">0</span>)</a></li>
                 </ul>
-            </div>
-        </nav>
-    </div>
-</header>
-
+            </nav>
+            
+            <!-- Mobile hamburger button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <!-- Mobile Navigation overlay -->
+            <nav class="mobile-nav" id="mobile-nav">
+                <div class="nav-overlay"></div>
+                <div class="nav-content">
+                    <button class="nav-close" aria-label="Close navigation">&times;</button>
+                    <ul class="nav-list">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="index.html#faq">FAQs</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="login.html" id="mobileAuthLink" data-auth-link="true">Login</a></li>
+                        <li><a href="cart.html">Cart (<span id="mobileCartCount">0</span>)</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
 
     <!-- Hero section: enhanced with trust indicators and modern design -->
     <section id="home" class="hero-section fade-in">
@@ -101,15 +100,15 @@
             <h2 class="section-title">Why Oops?</h2>
             <div class="features-grid">
                 <div class="feature-card fade-in">
-                    <h3 class="feature-title">Over 99% Accurate</h3>
+                    <h3 class="feature-title">Over 99% Accurate</h3>
                     <p class="feature-description">Oops provides accurate results from the day of your expected period, giving you peace of mind when you need it most.</p>
                 </div>
                 <div class="feature-card fade-in">
-                    <h3 class="feature-title">Discreet Packaging</h3>
+                    <h3 class="feature-title">Discreet Packaging</h3>
                     <p class="feature-description">Our sleek, minimal box ensures your privacy. The black packaging keeps prying eyes away and your news confidential.</p>
                 </div>
                 <div class="feature-card fade-in">
-                    <h3 class="feature-title">Fast Results</h3>
+                    <h3 class="feature-title">Fast Results</h3>
                     <p class="feature-description">Results appear within seconds. Get clear answers quickly without any complicated steps.</p>
                 </div>
             </div>
@@ -282,24 +281,7 @@
         </div>
     </footer>
 
-<!-- Paste this at the very end of <body>, just before </body> -->
-<nav id="mobile-nav" class="mobile-nav" hidden>
-  <div class="nav-overlay" data-close="mobile"></div>
-  <div class="nav-content" role="dialog" aria-modal="true">
-    <button class="nav-close" aria-label="Close menu">&times;</button>
-    <ul class="nav-list">
-      <li><a href="index.html#home">Home</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="index.html#faq">FAQs</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-      <li><a href="login.html" id="mobileAuthLink" data-auth-link="true">Login</a></li>
-      <li><a href="cart.html">Cart (<span id="mobileCartCount">0</span>)</a></li>
-    </ul>
-  </div>
-</nav>
-
-<script src="script.js" defer></script>
-
-
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>
