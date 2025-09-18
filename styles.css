@@ -3494,58 +3494,38 @@ body {
         transform: translateY(-3px);
         box-shadow: 0 12px 35px rgba(255, 20, 147, 0.4);
     }
-/* --- Fix: closed mobile menu shouldn't capture taps --- */
-.mobile-nav { pointer-events: none; }
-.mobile-nav.active { pointer-events: auto; }
-/* Product page: keep CTA a normal size on mobile */
+/* --- MOBILE NAV: single source of truth override --- */
 @media (max-width: 768px) {
-  .product-card .cta-button {
-    width: auto !important;
-    max-width: 260px;
-    display: inline-flex;
-    align-self: center;
-    padding: var(--spacing-md) var(--spacing-lg);
-    font-size: 1rem;
-    margin: 0 auto var(--spacing-md);
-  }
+  /* ensure burger shows, desktop nav hides */
+  .mobile-menu-toggle { display: flex !important; z-index: 10001 !important; position: relative !important; }
+  .desktop-nav       { display: none !important; }
 
-  .product-card .disclaimer,
-  .product-card .product-pricing {
-    margin-bottom: var(--spacing-md);
-  }
-}
-/* Mobile menu: reliable slide-in and proper layering */
-@media (max-width: 768px) {
+  /* off-canvas container */
   .mobile-nav {
-    display: block;                /* ensure it exists on mobile */
-    position: fixed;
-    inset: 0;                      /* top/right/bottom/left = 0 */
-    transform: translateX(100%);   /* start offscreen to the right */
-    transition: transform 0.3s ease;
-    z-index: 9999;                 /* above header/content */
-    pointer-events: none;          /* don't block taps when closed */
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+    transform: translateX(100%) !important;     /* start offscreen */
+    transition: transform .3s ease !important;
+    z-index: 10000 !important;                  /* above sticky header */
+    pointer-events: none !important;            /* don't catch taps when closed */
   }
   .mobile-nav.active {
-    transform: translateX(0);      /* slide in */
-    pointer-events: auto;          /* clickable when open */
+    transform: translateX(0) !important;        /* slide in */
+    pointer-events: auto !important;            /* clickable when open */
   }
 
-  /* overlay and panel */
+  /* dark overlay + sliding panel */
   .mobile-nav .nav-overlay {
-    position: absolute; inset: 0;
-    background: rgba(0,0,0,0.8);
+    position: absolute !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+    background: rgba(0,0,0,.8) !important;
     backdrop-filter: blur(10px);
   }
   .mobile-nav .nav-content {
-    position: absolute; top: 0; right: 0;
-    width: 280px; height: 100%;
-    background: var(--card-bg);
+    position: absolute !important; top: 0 !important; right: 0 !important;
+    width: 280px !important; height: 100% !important;
+    background: var(--card-bg, #111) !important;
+    padding: var(--spacing-xl) var(--spacing-lg) !important;
+    box-shadow: -10px 0 30px rgba(0,0,0,.3) !important;
   }
-
-  /* show the burger button on mobile */
-  .mobile-menu-toggle { display: flex; }
-  /* hide desktop nav on mobile */
-  .desktop-nav { display: none; }
 }
-
-
