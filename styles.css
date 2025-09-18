@@ -3514,3 +3514,31 @@ body {
     margin-bottom: var(--spacing-md);
   }
 }
+  /* Mobile menu: reliable slide-in + correct tap behavior */
+@media (max-width: 768px) {
+  .mobile-nav {
+    display: block;                /* keep it in the DOM on mobile */
+    position: fixed;
+    inset: 0;                      /* top/right/bottom/left: 0 */
+    transform: translateX(100%);   /* start off-canvas */
+    transition: transform 0.3s ease;
+    z-index: 9999;                 /* above header/content */
+    pointer-events: none;          /* don't capture taps when closed */
+  }
+  .mobile-nav.active {
+    transform: translateX(0);      /* slide in */
+    pointer-events: auto;          /* clickable when open */
+  }
+  /* Panel stays on the right; overlay covers the page */
+  .mobile-nav .nav-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+  }
+  .mobile-nav .nav-content {
+    position: absolute; top: 0; right: 0;
+    width: 280px; height: 100%;
+    background: var(--card-bg);
+  }
+}
+
