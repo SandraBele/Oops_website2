@@ -10,46 +10,31 @@
 </head>
 <body>
     <!-- Header: dark-themed navigation with brand logo -->
-    <header class="site-header">
-        <div class="container flex between align-center">
-            <!-- Brand logo -- now using the provided transparent PNG version -->
-            <img src="oops_logo.png" alt="Oops logo" class="site-logo-img">
-            <!-- Desktop Navigation -->
-            <nav class="site-nav desktop-nav">
-                <ul class="nav-list flex between align-center">
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="index.html#faq">FAQs</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                    <li><a href="login.html" id="authLink" data-auth-link="true">Login</a></li>
-                    <li><a href="cart.html">Cart (<span id="cartCount">0</span>)</a></li>
-                </ul>
-            </nav>
-            
-            <!-- Mobile hamburger button -->
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-            
-            <!-- Mobile Navigation overlay -->
-            <nav class="mobile-nav" id="mobile-nav">
-                <div class="nav-overlay"></div>
-                <div class="nav-content">
-                    <button class="nav-close" aria-label="Close navigation">&times;</button>
-                    <ul class="nav-list">
-                        <li><a href="index.html#home">Home</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="index.html#faq">FAQs</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                        <li><a href="login.html" id="mobileAuthLink" data-auth-link="true">Login</a></li>
-                        <li><a href="cart.html">Cart (<span id="mobileCartCount">0</span>)</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
+  <header class="site-header">
+  <div class="container flex between align-center">
+    <!-- Brand logo -->
+    <img src="oops_logo.png" alt="Oops logo" class="site-logo-img">
+
+    <!-- Desktop nav (shows on desktop only) -->
+    <nav class="site-nav desktop-nav">
+      <ul class="nav-list flex between align-center">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="index.html#faq">FAQs</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="login.html" id="authLink" data-auth-link="true">Login</a></li>
+        <li><a href="cart.html">Cart (<span id="cartCount">0</span>)</a></li>
+      </ul>
+    </nav>
+
+    <!-- Burger (shows on mobile only) -->
+    <button class="mobile-menu-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Open menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+</header>
 
     <!-- Hero section: enhanced with trust indicators and modern design -->
     <section id="home" class="hero-section fade-in">
@@ -282,6 +267,23 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="script.js"></script>
+  <nav id="mobile-nav" class="mobile-nav" hidden>
+  <div class="nav-overlay" data-close="mobile"></div>
+  <div class="nav-content" role="dialog" aria-modal="true">
+    <button class="nav-close" aria-label="Close menu">&times;</button>
+    <ul class="nav-list">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="index.html#faq">FAQs</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Make sure every page loads your JS (defer keeps it safe) -->
+<script src="script.js" defer></script>
+
 </body>
 </html>
