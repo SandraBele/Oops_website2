@@ -3510,3 +3510,6 @@ body {
   z-index: 2;           /* above everything in the card */
 }
 
+/* --- Fix: closed mobile menu shouldn't capture taps --- */
+.mobile-nav { pointer-events: none; }
+.mobile-nav.active { pointer-events: auto; }
