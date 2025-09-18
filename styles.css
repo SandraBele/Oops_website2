@@ -3514,22 +3514,23 @@ body {
     margin-bottom: var(--spacing-md);
   }
 }
-  /* Mobile menu: reliable slide-in + correct tap behavior */
+/* Mobile menu: reliable slide-in and proper layering */
 @media (max-width: 768px) {
   .mobile-nav {
-    display: block;                /* keep it in the DOM on mobile */
+    display: block;                /* ensure it exists on mobile */
     position: fixed;
-    inset: 0;                      /* top/right/bottom/left: 0 */
-    transform: translateX(100%);   /* start off-canvas */
+    inset: 0;                      /* top/right/bottom/left = 0 */
+    transform: translateX(100%);   /* start offscreen to the right */
     transition: transform 0.3s ease;
     z-index: 9999;                 /* above header/content */
-    pointer-events: none;          /* don't capture taps when closed */
+    pointer-events: none;          /* don't block taps when closed */
   }
   .mobile-nav.active {
     transform: translateX(0);      /* slide in */
     pointer-events: auto;          /* clickable when open */
   }
-  /* Panel stays on the right; overlay covers the page */
+
+  /* overlay and panel */
   .mobile-nav .nav-overlay {
     position: absolute; inset: 0;
     background: rgba(0,0,0,0.8);
@@ -3540,5 +3541,11 @@ body {
     width: 280px; height: 100%;
     background: var(--card-bg);
   }
+
+  /* show the burger button on mobile */
+  .mobile-menu-toggle { display: flex; }
+  /* hide desktop nav on mobile */
+  .desktop-nav { display: none; }
 }
+
 
