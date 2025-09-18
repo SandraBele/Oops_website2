@@ -3494,30 +3494,30 @@ body {
         transform: translateY(-3px);
         box-shadow: 0 12px 35px rgba(255, 20, 147, 0.4);
     }
-/* --- MOBILE NAV: single source of truth override --- */
+/* --- MOBILE NAV: single, final override --- */
 @media (max-width: 768px) {
-  /* ensure burger shows, desktop nav hides */
+  /* show burger, hide desktop links */
   .mobile-menu-toggle { display: flex !important; z-index: 10001 !important; position: relative !important; }
   .desktop-nav       { display: none !important; }
 
-  /* off-canvas container */
+  /* off-canvas container (closed by default) */
   .mobile-nav {
     display: block !important;
     position: fixed !important;
-    top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
-    transform: translateX(100%) !important;     /* start offscreen */
+    inset: 0 !important;                     /* top/right/bottom/left:0 */
+    transform: translateX(100%) !important;  /* start off-screen */
     transition: transform .3s ease !important;
-    z-index: 10000 !important;                  /* above sticky header */
-    pointer-events: none !important;            /* don't catch taps when closed */
+    z-index: 10000 !important;               /* above sticky header */
+    pointer-events: none !important;         /* don't catch taps when closed */
   }
   .mobile-nav.active {
-    transform: translateX(0) !important;        /* slide in */
-    pointer-events: auto !important;            /* clickable when open */
+    transform: translateX(0) !important;     /* slide in */
+    pointer-events: auto !important;         /* clickable when open */
   }
 
-  /* dark overlay + sliding panel */
+  /* overlay + panel */
   .mobile-nav .nav-overlay {
-    position: absolute !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+    position: absolute !important; inset: 0 !important;
     background: rgba(0,0,0,.8) !important;
     backdrop-filter: blur(10px);
   }
@@ -3528,4 +3528,41 @@ body {
     padding: var(--spacing-xl) var(--spacing-lg) !important;
     box-shadow: -10px 0 30px rgba(0,0,0,.3) !important;
   }
+}
+/* --- PRODUCT + HOME: prevent CTA overlap on mobile --- */
+@media (max-width: 768px) {
+  /* make product card a single column stack */
+  .product-card { display: block !important; }
+  .product-image-wrapper { height: auto !important; }
+  .product-image { width: 100% !important; height: auto !important; }
+
+  /* keep CTAs tidy (products + hero) */
+  .product-card .cta-button,
+  .hero-section .cta-button {
+    width: auto !important;
+    max-width: 260px !important;
+    display: inline-flex !important;
+    margin: var(--spacing-md) auto !important;
+    position: relative; z-index: 2;          /* sit above any nearby boxes */
+  }
+
+  /* ensure spacing above buttons */
+  .product-card .disclaimer,
+  .product-card .product-pricing,
+  .product-content .usage-section {
+    margin-bottom: var(--spacing-lg) !important;
+  }
+}
+
+/* --- LOGIN: stop email/password boxes overlapping on small screens --- */
+@media (max-width: 768px) {
+  /* room below sticky header */
+  .auth-page { padding-top: calc(56px + var(--spacing-lg)) !important; }
+
+  .enhanced-auth-container { max-width: 94% !important; margin: var(--spacing-md) auto !important; }
+  .enhanced-auth-form .form-group { margin-bottom: 1rem !important; }
+
+  .input-wrapper { width: 100% !important; display: block !important; position: relative !important; }
+  .form-input   { box-sizing: border-box !important; min-height: 52px !important; padding-left: 2.5rem !important; }
+  .input-icon   { left: .75rem !important; transform: translateY(-50%) !important; }
 }
