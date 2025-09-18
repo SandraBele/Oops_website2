@@ -3494,22 +3494,23 @@ body {
         transform: translateY(-3px);
         box-shadow: 0 12px 35px rgba(255, 20, 147, 0.4);
     }
-}
-/* --- Fix: disclaimer should not cover CTAs --- */
-.product-card .disclaimer,
-.product-card .product-pricing {
-  position: relative;   /* keep normal flow */
-  z-index: 0;           /* below the button */
-  margin-bottom: var(--spacing-lg);
-}
-
-.product-card .cta-button,
-.product-card .enhanced-cta,
-.product-card .enhanced-cta-button {
-  position: relative;
-  z-index: 2;           /* above everything in the card */
-}
-
 /* --- Fix: closed mobile menu shouldn't capture taps --- */
 .mobile-nav { pointer-events: none; }
 .mobile-nav.active { pointer-events: auto; }
+/* Product page: keep CTA a normal size on mobile */
+@media (max-width: 768px) {
+  .product-card .cta-button {
+    width: auto !important;
+    max-width: 260px;
+    display: inline-flex;
+    align-self: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1rem;
+    margin: 0 auto var(--spacing-md);
+  }
+
+  .product-card .disclaimer,
+  .product-card .product-pricing {
+    margin-bottom: var(--spacing-md);
+  }
+}
