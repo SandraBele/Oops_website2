@@ -3495,3 +3495,18 @@ body {
         box-shadow: 0 12px 35px rgba(255, 20, 147, 0.4);
     }
 }
+/* --- Fix: disclaimer should not cover CTAs --- */
+.product-card .disclaimer,
+.product-card .product-pricing {
+  position: relative;   /* keep normal flow */
+  z-index: 0;           /* below the button */
+  margin-bottom: var(--spacing-lg);
+}
+
+.product-card .cta-button,
+.product-card .enhanced-cta,
+.product-card .enhanced-cta-button {
+  position: relative;
+  z-index: 2;           /* above everything in the card */
+}
+
